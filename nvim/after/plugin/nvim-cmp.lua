@@ -1,8 +1,7 @@
 local cmp = require'cmp'
 
   cmp.setup({
-    snippet = {
-      expand = function(args)
+    snippet = { expand = function(args)
         require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
       end,
     },
@@ -45,7 +44,7 @@ local cmp = require'cmp'
     })
   })
 
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
   require('lspconfig')['golangci_lint_ls'].setup {
     capabilities = capabilities

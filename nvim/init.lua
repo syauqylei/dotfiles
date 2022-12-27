@@ -1,9 +1,9 @@
 require('packer_bootstrap')
 require('plugins')
+vim.fn.sign_define('DapBreakpoint', {text='🛑', texthl='', linehl='', numhl=''})
 vim.g.mapleader = " "
 
 vim.o.termguicolors = true
-vim.cmd("colorscheme melange")
 
 vim.o.smarttab = false
 vim.o.number = true
@@ -14,3 +14,5 @@ vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.hlsearch = false
 
 vim.o.swapfile = false 
+
+vim.cmd[[colorscheme dracula]]
