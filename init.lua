@@ -1,3 +1,4 @@
+local sources = require "lualine.components.diagnostics.sources"
 -- Install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 local is_bootstrap = false
@@ -25,6 +26,8 @@ require('packer').startup(function(use)
       'folke/neodev.nvim',
     },
   }
+
+  use 'jose-elias-alvarez/null-ls.nvim'
 
   use { -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -68,6 +71,17 @@ require('packer').startup(function(use)
       tag = 'nightly' -- optional, updated every week. (see issue #1193)
     }
 
+  use {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  }
+
+  use {
+    "ur4ltz/surround.nvim",
+    config = function()
+      require"surround".setup {mappings_style = "surround"}
+    end
+  }
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
@@ -207,6 +221,11 @@ require('telescope').setup {
         ['<C-u>'] = false,
         ['<C-d>'] = false,
       },
+    },
+    file_ignore_patterns = {
+      "node_modules",
+      "dist",
+      "build",
     },
   },
 }
@@ -440,8 +459,18 @@ cmp.setup {
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.o.swapfile = false
 
 require("nvim-tree").setup()
-vim.api.nvim_set_keymap('n', '<Leader>e',  [[<Cmd>:NvimTreeToggle<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>E',  [[<Cmd>:NvimTreeToggle<CR>]], { noremap = true, silent = true })
+local null_ls = require('null-ls')
+
+null_ls.setup({
+  sources = {
+    null_ls.builtins.formatting.eslint,
+    null_ls.builtins.code_actions.eslint,
+    null_ls.builtins.diagnostics.eslint,
+  },
+})
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
