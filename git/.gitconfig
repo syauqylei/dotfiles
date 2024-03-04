@@ -1,0 +1,13 @@
+[user]
+	name = syauqylei
+	email = syauqilenterano@gmail.com
+	signingkey = /Users/syauqyilham/wallex-dir/id_wallex.pub
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
