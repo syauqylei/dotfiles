@@ -1,36 +1,42 @@
 clean-hyper:
-	stow -t '${HOME}/.config' -D hyper
+	stow  -D hyper
 
 clean-neovim:
-	stow -t '${HOME}/.config/nvim' -D nvim
+	stow  -D nvim
 
 clean-git:
-	stow -t '${HOME}/.config' -D git
+	stow  -D git
 
 clean-zsh:
-	stow -t '${HOME}/.config' -D zsh
+	stow  -D zsh
 
 clean-tmux:
-	stow -t '${HOME}/.config' -D tmux
+	stow  -D tmux
 
 
 neovim:
-	stow -t '${HOME}/.config/nvim' nvim
+	stow  nvim
 
 zsh:
-	stow -t '${HOME}/.config' zsh
+	stow  zsh
 
 tmux:
-	stow -t '${HOME}/.config' tmux
+	stow  tmux
 
 git:
-	stow -t '${HOME}/.config' git
+	stow  git
 
 hyper:
-	stow -t '${HOME}/.config' hyper
+	stow  hyper
+
+yabai:
+	stow yabai
+
+skhd:
+	stow skhd
 
 
-install: neovim hyper zsh tmux git
+install: neovim hyper zsh tmux git skhd yabai
 	echo 'create a symlinks config'
 
 clean: clean-neovim clean-hyper clean-git clean-zsh clean-tmux

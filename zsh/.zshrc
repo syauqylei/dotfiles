@@ -117,3 +117,6 @@ export CPPFLAGS="-I/opt/homebrew/opt/curl/include"
 export PATH="/Users/syauqyilham/.local/bin:$PATH"
 
 set -o vi
+bindkey -v
+bindkey '^R' history-incremental-search-backward
+
