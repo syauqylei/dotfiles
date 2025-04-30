@@ -110,13 +110,19 @@ export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 alias vi=nvim
 alias vim=nvim
 alias lvim=nvim
+alias lg=lazygit
 
 export LDFLAGS="-L/opt/homebrew/opt/curl/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/curl/include"
 
 export PATH="/Users/syauqyilham/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 set -o vi
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 
+nvm use 22
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+export PATH="$HOME/.deno/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql@8.4/bin:$PATH"
