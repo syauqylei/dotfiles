@@ -13,6 +13,8 @@ clean-zsh:
 clean-tmux:
 	stow  -D tmux
 
+clean-ghostty:
+	stow -D ghostty
 
 neovim:
 	stow  nvim
@@ -34,6 +36,9 @@ yabai:
 
 skhd:
 	stow skhd
+
+ghostty:
+	stow ghostty
 
 
 install: neovim hyper zsh tmux git skhd yabai
